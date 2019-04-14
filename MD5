@@ -1,6 +1,6 @@
-0de8c19b09954d4b70f2ce3dada93550 *DESCRIPTION
+28513b7c2c4336a4be5eacb6232942b5 *DESCRIPTION
 25fdf5681b254eec52615284784b2769 *NAMESPACE
-ea7957bedf5844e0494dd5290e190e04 *NEWS.md
+65639d4ec9065eaccf0c14028ddd949c *NEWS.md
 8a67cf9174bf94e1eddeac4051a45348 *R/MatrixFactorizationRecommender.R
 bacaab3e483a8fa8325ed9d54d9e8604 *R/RcppExports.R
 43e25d0ae25f76e37b844ad885124356 *R/SoftALS.R
@@ -10,7 +10,7 @@ d165070672ba8c19d55698829117e741 *R/methods.R
 302bcbde1af6ae00244ff171fd2a805e *R/metrics.R
 af5c42f20a3265053f91e42032c6d02b *R/model_FTRL.R
 00db2143e4ef7609d21bc8243ad018d9 *R/model_FactorizationMachine.R
-5df70c70c0e0b527332cd6b92e65cb1d *R/model_GloVe.R
+a38434bcaaf585c839672e12159a9cd1 *R/model_GloVe.R
 8b9d43fa15ae64b02b960956161d172f *R/model_LinearFlow.R
 cae5fd6830a67bf263f7f232dd692b3b *R/model_PureSVD.R
 440041907c3150f3e9aed049570dede4 *R/model_WRMF.R
@@ -26,7 +26,7 @@ d41d8cd98f00b204e9800998ecf8427e *configure.win
 449c842ac415dab882efb34eaf41d0d4 *data/movielens100k.RData
 bcf601bac88dc6d6bafa6dc3f0057693 *man/FTRL.Rd
 a978b09383d32637911941f3db81f0a2 *man/FactorizationMachine.Rd
-0027a27aa0eeeb2dbedcbd8576ef1c90 *man/GloVe.Rd
+98f0b00c17caf1ed24b6794871bbe5c7 *man/GloVe.Rd
 1812f33d6453e45dde044911f4320561 *man/LinearFlow.Rd
 fe0effbdfcf445b35bdda4288c3a7272 *man/PureSVD.Rd
 fd13de9d89702d42089af7f5ea5eb766 *man/WRMF.Rd
@@ -44,9 +44,9 @@ a1f55abf4e8ff8d41eb02d6863b4a6cb *src/Makevars.in
 32a3e5094055bc7d31e43270eb0f9391 *src/Makevars.win
 7bf4b4f33a93543f1b838621a501a5e4 *src/MappedSparseMatrices.h
 3f70dcb5883cd7403993b3e7fdbc9c80 *src/ProductSparseDense.cpp
-c184ad4900e5bd1a865accdc0d5f98d5 *src/RcppExports.cpp
+b449e05f3851b912a5bb028e2a4e6729 *src/RcppExports.cpp
 c9c4ca23212e5f877e6e34696458ce31 *src/SolverAlsWrmf.cpp
-3e973011e2302801993e3524094b4baa *src/TopProduct.cpp
+e22d5f2d50eeb3d127855937706db5f9 *src/TopProduct.cpp
 7de12bd580e05a42d8909c4ec2cff463 *src/kmeans.cpp
 31aad29b4baf4a5d915e620efdb32438 *src/rsparse.h
 47427cd998bfb8133c3b6b5b17bc6eba *src/utils.cpp
@@ -54,7 +54,7 @@ eb7efe2dff44c25398397516b4e3bf7f *tests/testthat.R
 05aa9f68aa726cc549780fdb7e15902f *tests/testthat/test-csr-subset.R
 ce6c5413dcbe6b01be2437f97a23ddc1 *tests/testthat/test-fm.R
 a6775e6c8cf710e9ed48d2a5c86c25b8 *tests/testthat/test-ftrl.R
-ff7c8b4a2a3ec5d62008e83891078191 *tests/testthat/test-glove.R
+f810d579416b741e7408d72d488f31aa *tests/testthat/test-glove.R
 a0645873a0498bbc1b1e158c0a1fcc37 *tests/testthat/test-linear-flow.R
 3e0e073109a997944ea4cbb89b860348 *tests/testthat/test-matmul.R
 2f2293e65d86506bbea835040b6aea5e *tests/testthat/test-metrics.R
