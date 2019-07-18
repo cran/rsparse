@@ -1,4 +1,4 @@
-<a href="https://www.rexy.ai"><img src="https://www.rexy.ai/images/logo.png" height="64" width="64"></a>. 
+<a href="https://www.rexy.ai"><img src="https://s3-eu-west-1.amazonaws.com/rexy.ai/images/favicon.ico" height="32" width="32"></a>
 [![Travis-CI Build Status](https://travis-ci.org/dselivanov/rsparse.svg?branch=master)](https://travis-ci.org/dselivanov/rsparse)
 [![codecov](https://codecov.io/gh/dselivanov/rsparse/branch/master/graph/badge.svg)](https://codecov.io/gh/dselivanov/rsparse/branch/master)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
@@ -35,7 +35,7 @@ Please reach us if you need **commercial support** - [hello@rexy.ai](mailto:hell
 We provide 2 solvers:
     1. Exact based of Cholesky Factorization
     1. Approximated based on fixed number of steps of **Conjugate Gradient**.
-See details in [Applications of the Conjugate Gradient Method for Implicit Feedback Collaborative Filtering](https://pdfs.semanticscholar.org/bfdf/7af6cf7fd7bb5e6b6db5bbd91be11597eaf0.pdf) and [Faster Implicit Matrix Factorization](www.benfrederickson.com/fast-implicit-matrix-factorization/).
+See details in [Applications of the Conjugate Gradient Method for Implicit Feedback Collaborative Filtering](https://pdfs.semanticscholar.org/bfdf/7af6cf7fd7bb5e6b6db5bbd91be11597eaf0.pdf) and [Faster Implicit Matrix Factorization](http://www.benfrederickson.com/fast-implicit-matrix-factorization/).
     * <img src="https://raw.githubusercontent.com/dselivanov/rsparse/master/docs/img/WRMF.png" width="400">
 1. **Linear-Flow** from [Practical Linear Models for Large-Scale One-Class Collaborative Filtering](http://www.bkveton.com/docs/ijcai2016.pdf). Algorithm looks for factorized low-rank item-item similarity matrix (in some sense it is similar to [SLIM](http://glaros.dtc.umn.edu/gkhome/node/774))
     * <img src="https://raw.githubusercontent.com/dselivanov/rsparse/master/docs/img/LinearFlow.png" width="300">
