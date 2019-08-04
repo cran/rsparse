@@ -1,6 +1,6 @@
-c241f3e2c1be231111e5f9ffc7cb1671 *DESCRIPTION
+bcbdc7f1be304236e5caf9445cf72b1d *DESCRIPTION
 25fdf5681b254eec52615284784b2769 *NAMESPACE
-9f8e2dca714375f4a48dbdb35a54abfb *NEWS.md
+21cf6be443e1663e073efdb1027da6bf *NEWS.md
 8a67cf9174bf94e1eddeac4051a45348 *R/MatrixFactorizationRecommender.R
 bacaab3e483a8fa8325ed9d54d9e8604 *R/RcppExports.R
 43e25d0ae25f76e37b844ad885124356 *R/SoftALS.R
@@ -47,6 +47,7 @@ a1f55abf4e8ff8d41eb02d6863b4a6cb *src/Makevars.in
 b449e05f3851b912a5bb028e2a4e6729 *src/RcppExports.cpp
 c9c4ca23212e5f877e6e34696458ce31 *src/SolverAlsWrmf.cpp
 e22d5f2d50eeb3d127855937706db5f9 *src/TopProduct.cpp
+7527dcff4e36bc4e26ed11ea19b478b5 *src/install.libs.R
 7de12bd580e05a42d8909c4ec2cff463 *src/kmeans.cpp
 31aad29b4baf4a5d915e620efdb32438 *src/rsparse.h
 47427cd998bfb8133c3b6b5b17bc6eba *src/utils.cpp
