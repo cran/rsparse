@@ -1,8 +1,8 @@
-bcbdc7f1be304236e5caf9445cf72b1d *DESCRIPTION
-25fdf5681b254eec52615284784b2769 *NAMESPACE
-21cf6be443e1663e073efdb1027da6bf *NEWS.md
+75a87099119da07a9a0517dde1fe6a36 *DESCRIPTION
+4506e1fd330721b21a2aac6325859edf *NAMESPACE
+970f887a391f2ce5c6fb5fdda9895f5d *NEWS.md
 8a67cf9174bf94e1eddeac4051a45348 *R/MatrixFactorizationRecommender.R
-bacaab3e483a8fa8325ed9d54d9e8604 *R/RcppExports.R
+962e26df7f691670a4588665852484ae *R/RcppExports.R
 43e25d0ae25f76e37b844ad885124356 *R/SoftALS.R
 73e551db8c7c03def9c0ba3caf5f9af0 *R/data.R
 5b1001a701856a780401686eb260e4d1 *R/kmeans.R
@@ -17,11 +17,11 @@ cae5fd6830a67bf263f7f232dd692b3b *R/model_PureSVD.R
 80471397fe3909e5dde6e6bea377113c *R/splr.R
 c0aa70ce1a9d2e98965ee9dae7cd97f1 *R/utils.R
 5748a8d671719922bd462c59d59089bb *R/utils_SoftALS.R
-a3bc5f9dfe3aa82e0b7ddb97d37eeb9e *R/zzz.R
+dc5e09c53d73a91a88cd5cea0b4fa027 *R/zzz.R
 7056fb36498758fd84d1bca1d1a0ef13 *README.md
 e61fc51f3f851b8879d91781040c8ef9 *cleanup
-fd74cc88df991bb3de0d372b17f50a7c *configure
-da76971bcfda38473fbc312b0ce7ebd0 *configure.ac
+36fabcfcd157c742c1d31499b619877a *configure
+250ddb17141b9c9450600fdca2462d72 *configure.ac
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 449c842ac415dab882efb34eaf41d0d4 *data/movielens100k.RData
 bcf601bac88dc6d6bafa6dc3f0057693 *man/FTRL.Rd
@@ -47,7 +47,6 @@ a1f55abf4e8ff8d41eb02d6863b4a6cb *src/Makevars.in
 b449e05f3851b912a5bb028e2a4e6729 *src/RcppExports.cpp
 c9c4ca23212e5f877e6e34696458ce31 *src/SolverAlsWrmf.cpp
 e22d5f2d50eeb3d127855937706db5f9 *src/TopProduct.cpp
-7527dcff4e36bc4e26ed11ea19b478b5 *src/install.libs.R
 7de12bd580e05a42d8909c4ec2cff463 *src/kmeans.cpp
 31aad29b4baf4a5d915e620efdb32438 *src/rsparse.h
 47427cd998bfb8133c3b6b5b17bc6eba *src/utils.cpp

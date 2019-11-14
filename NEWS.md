@@ -1,6 +1,6 @@
-- 2019-07-17 - `v0.3.3.3`
-    - another try to make linking to shared library on OS X work properly on binary installations
-    - now depends on R >= 3.6.0 (anyway `float` pkg depends on R >=3.6.0)
+- 2019-10-14 - `v0.3.3.4`
+    - link to static float lib on OSX - see #25
+    - now depend on R >= 3.6.0 (same as float package)
 - 2019-07-17 - `v0.3.3.2`
     - faster `find_top_product()` - avoid BLAS and openmp thread contention
     - correctly identify openmp on OSX
