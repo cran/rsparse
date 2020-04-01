@@ -1,5 +1,5 @@
-#include "MappedSparseMatrices.h"
 #include <RcppArmadillo.h>
+#include "MappedSparseMatrices.h"
 #include <stdexcept>
 
 #ifdef _OPENMP
@@ -22,3 +22,7 @@ dMappedCSC extract_mapped_csc(Rcpp::S4 input);
 
 // [[Rcpp::export]]
 int omp_thread_count();
+
+bool is_master();
+
+const std::string currentDateTime();

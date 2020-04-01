@@ -1,4 +1,5 @@
 #include "rsparse.h"
+#include <time.h>
 
 // [[Rcpp::export]]
 Rcpp::NumericVector cpp_make_sparse_approximation(const Rcpp::S4 &mat_template,
@@ -56,22 +57,22 @@ Rcpp::NumericVector cpp_make_sparse_approximation(const Rcpp::S4 &mat_template,
 
 dMappedCSR extract_mapped_csr(Rcpp::S4 input) {
   Rcpp::IntegerVector dim = input.slot("Dim");
-  Rcpp::NumericVector value = input.slot("x");
-  uint32_t nrows = dim[0];
-  uint32_t ncols = dim[1];
+  Rcpp::NumericVector values = input.slot("x");
+  arma::uword nrows = dim[0];
+  arma::uword ncols = dim[1];
   Rcpp::IntegerVector rj = input.slot("j");
   Rcpp::IntegerVector rp = input.slot("p");
-  return dMappedCSR(nrows, ncols, value.length(), (uint32_t *)rj.begin(), (uint32_t *)rp.begin(), value.begin());
+  return dMappedCSR(nrows, ncols, values.length(), (arma::uword *)rj.begin(), (arma::uword *)rp.begin(), (double *)values.begin());
 }
 
 dMappedCSC extract_mapped_csc(Rcpp::S4 input) {
   Rcpp::IntegerVector dim = input.slot("Dim");
   Rcpp::NumericVector values = input.slot("x");
-  uint32_t nrows = dim[0];
-  uint32_t ncols = dim[1];
+  arma::uword nrows = dim[0];
+  arma::uword ncols = dim[1];
   Rcpp::IntegerVector row_indices = input.slot("i");
   Rcpp::IntegerVector col_ptrs = input.slot("p");
-  return dMappedCSC(nrows, ncols, values.length(), (uint32_t *)row_indices.begin(), (uint32_t *)col_ptrs.begin(), values.begin());
+  return dMappedCSC(nrows, ncols, values.length(), (arma::uword *)row_indices.begin(), (arma::uword *)col_ptrs.begin(), (double *)values.begin());
 }
 
 // returns number of available threads
@@ -85,4 +86,28 @@ int omp_thread_count() {
   #endif
   n += 1;
   return n;
+}
+
+
+bool is_master() {
+  #ifdef _OPENMP
+  return omp_get_thread_num() == 0;
+  #else
+  return true;
+  #endif
+}
+
+
+// https://stackoverflow.com/a/10467633/1069256
+// Get current date/time, format is YYYY-MM-DD HH:mm:ss
+const std::string currentDateTime() {
+  time_t     now = time(0);
+  struct tm  tstruct;
+  char       buf[80];
+  tstruct = *localtime(&now);
+  // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+  // for more information about date/time format
+  strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
+
+  return buf;
 }
