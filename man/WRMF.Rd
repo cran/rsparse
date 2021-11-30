@@ -2,11 +2,11 @@
 % Please edit documentation in R/model_WRMF.R
 \name{WRMF}
 \alias{WRMF}
-\title{Weighted Regularized Matrix Facrtorization for collaborative filtering}
+\title{Weighted Regularized Matrix Factorization for collaborative filtering}
 \description{
-Creates matrix factorization model which could be solved with Alternating Least Squares (Weighted ALS for implicit feedback).
+Creates a matrix factorization model which is solved through Alternating Least Squares (Weighted ALS for implicit feedback).
 For implicit feedback see "Collaborative Filtering for Implicit Feedback Datasets" (Hu, Koren, Volinsky).
-For explicit feedback model is classic model for rating matrix decomposition with MSE error (without biases at the moment).
+For explicit feedback it corresponds to the classic model for rating matrix decomposition with MSE error.
 These two algorithms are proven to work well in recommender systems.
 }
 \examples{
@@ -20,13 +20,23 @@ preds = model$predict(cv, k = 10, not_recommend = cv)
 }
 \references{
 \itemize{
+  \item{Hu, Yifan, Yehuda Koren, and Chris Volinsky.
+        "Collaborative filtering for implicit feedback datasets."
+        2008 Eighth IEEE International Conference on Data Mining. Ieee, 2008.}
   \item{\url{https://math.stackexchange.com/questions/1072451/analytic-solution-for-matrix-factorization-using-alternating-least-squares/1073170#1073170}}
   \item{\url{http://activisiongamescience.github.io/2016/01/11/Implicit-Recommender-Systems-Biased-Matrix-Factorization/}}
-  \item{\url{http://datamusing.info/blog/2015/01/07/implicit-feedback-and-collaborative-filtering/}}
   \item{\url{https://jessesw.com/Rec-System/}}
-  \item{\url{http://danielnee.com/2016/09/collaborative-filtering-using-alternating-least-squares/}}
   \item{\url{http://www.benfrederickson.com/matrix-factorization/}}
   \item{\url{http://www.benfrederickson.com/fast-implicit-matrix-factorization/}}
+  \item{Franc, Vojtech, Vaclav Hlavac, and Mirko Navara.
+        "Sequential coordinate-wise algorithm for the
+        non-negative least squares problem."
+        International Conference on Computer Analysis of Images
+        and Patterns. Springer, Berlin, Heidelberg, 2005.}
+  \item{Zhou, Yunhong, et al.
+        "Large-scale parallel collaborative filtering for the netflix prize."
+        International conference on algorithmic applications in management.
+        Springer, Berlin, Heidelberg, 2008.}
 }
 }
 \section{Super class}{
@@ -57,11 +67,13 @@ creates WRMF model
 \if{html}{\out{<div class="r">}}\preformatted{WRMF$new(
   rank = 10L,
   lambda = 0,
+  dynamic_lambda = TRUE,
   init = NULL,
   preprocess = identity,
   feedback = c("implicit", "explicit"),
-  non_negative = FALSE,
-  solver = c("conjugate_gradient", "cholesky"),
+  solver = c("conjugate_gradient", "cholesky", "nnls"),
+  with_user_item_bias = FALSE,
+  with_global_bias = FALSE,
   cg_steps = 3L,
   precision = c("double", "float"),
   ...
@@ -75,6 +87,8 @@ creates WRMF model
 
 \item{\code{lambda}}{regularization parameter}
 
+\item{\code{dynamic_lambda}}{whether `lambda` is to be scaled according to the number}
+
 \item{\code{init}}{initialization of item embeddings}
 
 \item{\code{preprocess}}{\code{identity()} by default. User spectified function which will
@@ -83,22 +97,29 @@ be applied to user-item interaction matrix before running matrix factorization
 For example we may want to normalize each row of user-item matrix to have 1 norm.
 Or apply \code{log1p()} to discount large counts.
 This corresponds to the "confidence" function from
-"Collaborative Filtering for Implicit Feedback Datasets" paper.}
+"Collaborative Filtering for Implicit Feedback Datasets" paper.
+Note that it will not automatically add +1 to the weights of the positive entries.}
 
 \item{\code{feedback}}{\code{character} - feedback type - one of \code{c("implicit", "explicit")}}
 
-\item{\code{non_negative}}{logical, whether to perform non-negative factorization}
-
-\item{\code{solver}}{\code{character} - solver for "implicit feedback" problem.
-One of \code{c("conjugate_gradient", "cholesky")}.
+\item{\code{solver}}{\code{character} - solver name.
+One of \code{c("conjugate_gradient", "cholesky", "nnls")}.
 Usually approximate \code{"conjugate_gradient"} is significantly faster and solution is
-on par with \code{"cholesky"}}
+on par with \code{"cholesky"}.
+\code{"nnls"} performs non-negative matrix factorization (NNMF) - restricts
+user and item embeddings to be non-negative.}
+
+\item{\code{with_user_item_bias}}{\code{bool} controls if  model should calculate user and item biases.
+At the moment only implemented for \code{"explicit"} feedback.}
+
+\item{\code{with_global_bias}}{\code{bool} controls if model should calculate global biases (mean).
+At the moment only implemented for \code{"explicit"} feedback.}
 
 \item{\code{cg_steps}}{\code{integer > 0} - max number of internal steps in conjugate gradient
 (if "conjugate_gradient" solver used). \code{cg_steps = 3} by default.
 Controls precision of linear equation solution at the each ALS step. Usually no need to tune this parameter}
 
-\item{\code{precision}}{one of \code{c("double", "float")}. Should embeeding matrices be
+\item{\code{precision}}{one of \code{c("double", "float")}. Should embedding matrices be
 numeric or float (from \code{float} package). The latter is usually 2x faster and
 consumes less RAM. BUT \code{float} matrices are not "base" objects. Use carefully.}
 
@@ -113,7 +134,12 @@ consumes less RAM. BUT \code{float} matrices are not "base" objects. Use careful
 \subsection{Method \code{fit_transform()}}{
 fits the model
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{WRMF$fit_transform(x, n_iter = 10L, convergence_tol = 0.005, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{WRMF$fit_transform(
+  x,
+  n_iter = 10L,
+  convergence_tol = ifelse(private$feedback == "implicit", 0.005, 0.001),
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -142,7 +168,7 @@ create user embeddings for new input
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{x}}{user-item iteraction matrix}
+\item{\code{x}}{user-item iteraction matrix (preferrably as `dgRMatrix`)}
 
 \item{\code{...}}{not used at the moment}
 }

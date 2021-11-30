@@ -11,6 +11,11 @@ All matrix factorization recommenders inherit from this class
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{components}}{item embeddings}
+
+\item{\code{global_bias}}{global mean (for centering values in explicit feedback)}
+
+\item{\code{global_bias_base}}{Pre-calculated `-(factors*global_bias)` (for centering values in
+implicit feedback when not using user/item biases)}
 }
 \if{html}{\out{</div>}}
 }

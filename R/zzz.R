@@ -1,9 +1,9 @@
 #' @import methods
-#' @import Matrix
 #' @importFrom stats rnorm
 #' @import data.table
 #' @import Rcpp
 #' @import float
+#' @import Matrix
 #' @importFrom RhpcBLASctl get_num_cores
 #' @useDynLib rsparse, .registration = TRUE
 

@@ -6,6 +6,11 @@ MatrixFactorizationRecommender = R6::R6Class(
   public = list(
     #' @field components item embeddings
     components = NULL,
+    #' @field global_bias global mean (for centering values in explicit feedback)
+    global_bias = 0.,
+    #' @field global_bias_base Pre-calculated `-(factors*global_bias)` (for centering values in
+    #' implicit feedback when not using user/item biases)
+    global_bias_base = numeric(),
     #' @description recommends items for users
     #' @param x user-item interactions matrix (usually sparse - `Matrix::sparseMatrix`).Users are
     #' rows and items are columns
@@ -58,7 +63,7 @@ MatrixFactorizationRecommender = R6::R6Class(
         not_recommend = as(not_recommend, "RsparseMatrix")
 
       uids = rownames(user_embeddings)
-      indices = find_top_product(user_embeddings, item_embeddings, k, not_recommend, items_exclude)
+      indices = find_top_product(user_embeddings, item_embeddings, k, not_recommend, items_exclude, glob_mean=self$global_bias)
 
       data.table::setattr(indices, "dimnames", list(uids, NULL))
       data.table::setattr(indices, "ids", NULL)
