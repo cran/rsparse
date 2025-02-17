@@ -1,4 +1,4 @@
-45932b80cd1b4a7ec2509488c01d3f53 *DESCRIPTION
+b046c4323b3c85652bd1632fd6384e8f *DESCRIPTION
 7c5e7c986cc15a5979b172496cb64618 *NAMESPACE
 36cefc12ddbc1482fd085fd36b761be7 *NEWS.md
 9ec7f6e1e4d7b5c9e8b5104fe50a72ea *R/MatrixFactorizationRecommender.R
@@ -10,7 +10,7 @@ fd27afebacfebf7ed056d8984029be33 *R/metrics.R
 f7236d58272c16fa345257d937c7f24a *R/model_FTRL.R
 89a4e64184f4564b46338bb213643521 *R/model_FactorizationMachine.R
 46dac4253d8c9b30342e75b2f94a85d2 *R/model_GloVe.R
-929fa02f572b516d3686faf735a9d539 *R/model_LinearFlow.R
+49821f8b79d53fa51643d85076bfc865 *R/model_LinearFlow.R
 47979c43f0d2906e582fae48a7efa6f2 *R/model_PureSVD.R
 07e2b22386a540136ec88209324676fa *R/model_RankMF.R
 d6ce530903242b48e07fbead92c22081 *R/model_ScaleNormalize.R
@@ -18,8 +18,8 @@ afb56cc6925c23e40ab37fefeb040a4e *R/model_WRMF.R
 80471397fe3909e5dde6e6bea377113c *R/splr.R
 e68a2c47be9db971a0f2d2d5a4a06eeb *R/utils.R
 5748a8d671719922bd462c59d59089bb *R/utils_SoftALS.R
-94051af1bb14dd1a61d58b87a22d164b *R/zzz.R
-4257304d5b2864ed1bdaec2cbb856835 *README.md
+6a10d48619f54e19352d4cd4e82c107c *R/zzz.R
+6ea4cfddd50dc7ad7f2221c72430f5d3 *README.md
 e61fc51f3f851b8879d91781040c8ef9 *cleanup
 addf7d9b2a502c5f22a84278fb27a85e *configure
 1e6ea16cea66896f8978ccdc31366869 *configure.ac
@@ -35,7 +35,7 @@ e51d61852d2c28dd8d7da48b30a8e669 *inst/include/wrmf_utils.hpp
 0bc8b9f01a0609cace91f0579eba76ed *man/FTRL.Rd
 0854a41a073120818d6e47a2395292ba *man/FactorizationMachine.Rd
 2e45216785c7f4acc0b0a3742f425354 *man/GloVe.Rd
-6ed994133a4cc798eb596b83454cd5c0 *man/LinearFlow.Rd
+62617d952f6d46fa47a7b90bba6775b3 *man/LinearFlow.Rd
 14b42b4718391ea291dcec30a7c3d8f0 *man/MatrixFactorizationRecommender.Rd
 69bb7705bca366b69baedf885c2b6bbc *man/PureSVD.Rd
 f4a5ce3b1f01a15bdfe85b0462421c34 *man/ScaleNormalize.Rd
@@ -57,7 +57,7 @@ ea5469ca00cde7195de93fbc22bb1328 *src/factorization_machine.cpp
 6188d3b9cb4ab9f4f1d1329bd2ddc9ab *src/nnls.cpp
 008d0444fc291577186b40ef9463c3a7 *src/rankmf.cpp
 831d12031c1ecb7e6819b05735262b9d *src/rsparse.h
-3a95ea5effe61ddf32ab3e4e7dbed277 *src/utils.cpp
+30eecee68601d77bc8ddb4f5145d7fb7 *src/utils.cpp
 ced2c00da49218f374511f7549d47618 *src/wrmf_explicit.cpp
 409e237541e68c05a47ab981f7267598 *src/wrmf_implicit.cpp
 b13d54d36dc3ec51179db269f74231a4 *src/wrmf_init.cpp

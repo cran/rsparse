@@ -1,7 +1,7 @@
 Package: rsparse
 Type: Package
 Title: Statistical Learning on Sparse Matrices
-Version: 0.5.2
+Version: 0.5.3
 Authors@R: c(
     person("Dmitriy", "Selivanov", role=c("aut", "cre", "cph"), email="selivanov.dmitriy@gmail.com", 
     comment = c(ORCID = "0000-0001-5413-1506")),
@@ -50,7 +50,7 @@ URL: https://github.com/dselivanov/rsparse
 BugReports: https://github.com/dselivanov/rsparse/issues
 RoxygenNote: 7.3.1
 NeedsCompilation: yes
-Packaged: 2024-06-28 07:23:13 UTC; dselivanov
+Packaged: 2025-02-16 15:00:46 UTC; dselivanov
 Author: Dmitriy Selivanov [aut, cre, cph]
     (<https://orcid.org/0000-0001-5413-1506>),
   David Cortes [ctb],
@@ -58,4 +58,4 @@ Author: Dmitriy Selivanov [aut, cre, cph]
   Wei-Chen Chen [ctb] (configure script and work on linking to float
     package)
 Repository: CRAN
-Date/Publication: 2024-06-28 09:30:02 UTC
+Date/Publication: 2025-02-17 00:10:02 UTC
